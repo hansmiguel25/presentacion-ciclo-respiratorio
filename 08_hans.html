@@ -6,6 +6,38 @@
     <title>Presentación 8 - Cierre y Agradecimientos</title>
     <!-- Conexión al archivo principal de animaciones y estilos -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- ANIMACIONES PERSONALIZADAS DE CIERRE --- */
+        @keyframes elementoEntrada {
+            0% { opacity: 0; transform: translateY(25px); scale(0.95); }
+            100% { opacity: 1; transform: translateY(0); scale(1); }
+        }
+
+        @keyframes flotarEstrella {
+            0% { transform: translateY(0px) rotate(0deg); filter: drop-shadow(0 0 5px rgba(255, 193, 7, 0.4)); }
+            50% { transform: translateY(-8px) rotate(8deg); filter: drop-shadow(0 0 12px rgba(255, 193, 7, 0.8)); }
+            100% { transform: translateY(0px) rotate(0deg); filter: drop-shadow(0 0 5px rgba(255, 193, 7, 0.4)); }
+        }
+
+        .cierre-animado-1 { animation: elementoEntrada 0.6s ease forwards 0.2s; opacity: 0; }
+        .cierre-animado-2 { animation: elementoEntrada 0.6s ease forwards 0.4s; opacity: 0; }
+        .cierre-animado-3 { animation: elementoEntrada 0.6s ease forwards 0.6s; opacity: 0; }
+        .cierre-animado-4 { animation: elementoEntrada 0.6s ease forwards 0.8s; opacity: 0; }
+
+        .estrella-flotante {
+            display: inline-block;
+            animation: flotarEstrella 3s ease-in-out infinite;
+        }
+
+        /* Efecto hover interactivo en la tarjeta de reflexión */
+        .tarjeta-reflexion {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .tarjeta-reflexion:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(211, 47, 47, 0.15);
+        }
+    </style>
 </head>
 <body>
     <div class="diapositiva">
@@ -24,13 +56,23 @@
         <div class="layout-pc-maestro">
             
             <!-- Columna Izquierda: Contenido Central Inspirador -->
-            <div class="columna-contenido-principal" style="text-align: center; justify-content: center; padding: 10px;">
-                <div style="font-size: 3.5em; margin-bottom: 10px;">🌟</div>
-                <h2 style="color: #d32f2f; font-size: 2em; margin-bottom: 15px;">¡Muchas gracias por su atención!</h2>
-                <p style="font-size: 1.15em; line-height: 1.6; color: #444; background: linear-gradient(145deg, #ffffff, #fdf2f2); padding: 25px; border-radius: 16px; border: 2px dashed #d32f2f; box-shadow: 0 10px 25px rgba(211, 47, 47, 0.08);">
+            <div class="columna-contenido-principal" style="text-align: center; justify-content: center; padding: 10px; display: flex; flex-direction: column; align-items: center;">
+                
+                <!-- Estrella animada -->
+                <div class="cierre-animado-1" style="font-size: 3.2em; margin-bottom: 8px;">
+                    <span class="estrella-flotante">🌟</span>
+                </div>
+
+                <!-- Título -->
+                <h2 class="cierre-animado-2" style="color: #d32f2f; font-size: 1.85em; margin-bottom: 15px;">¡Muchas gracias por su atención!</h2>
+
+                <!-- Tarjeta de reflexión con efecto hover -->
+                <div class="tarjeta-reflexion cierre-animado-3" style="font-size: 1.1em; line-height: 1.6; color: #444; background: linear-gradient(145deg, #ffffff, #fdf2f2); padding: 22px; border-radius: 16px; border: 2px dashed #d32f2f; box-shadow: 0 10px 25px rgba(211, 47, 47, 0.08); width: 100%; box-sizing: border-box;">
                     <em>"El conocimiento de la física y la fisiología no solo nos ayuda a entender cómo funciona cada ciclo en nuestro organismo, sino que nos impulsa a seguir construyendo ciencia con pasión y esfuerzo diario."</em>
-                </p>
-                <p style="font-weight: bold; color: #555; font-size: 1.1em; margin-top: 15px;">— Atentamente, Grupo 1 (UTP)</p>
+                </div>
+
+                <!-- Firma del grupo -->
+                <p class="cierre-animado-4" style="font-weight: bold; color: #555; font-size: 1.05em; margin-top: 15px;">— Atentamente, Grupo 1 (UTP)</p>
             </div>
             
             <!-- Columna Derecha: Video Lateral y Botones de Navegación -->

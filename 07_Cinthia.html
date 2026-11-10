@@ -9,10 +9,48 @@
         @media (min-width: 901px) {
             .pc-row { flex-direction: row !important; }
         }
+
+        /* --- ANIMACIONES PERSONALIZADAS EN CASCADA --- */
+        @keyframes tarjetaEntrada {
+            0% { opacity: 0; transform: translateY(25px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulsoLento {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 5px rgba(63, 81, 181, 0.4)); }
+            100% { transform: scale(1); }
+        }
+
+        .tarjeta-animada-1 { animation: tarjetaEntrada 0.6s ease forwards 0.2s; opacity: 0; }
+        .tarjeta-animada-2 { animation: tarjetaEntrada 0.6s ease forwards 0.4s; opacity: 0; }
+        .tarjeta-animada-3 { animation: tarjetaEntrada 0.6s ease forwards 0.6s; opacity: 0; }
+        .tabla-animada { animation: tarjetaEntrada 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards 0.5s; opacity: 0; }
+
+        .vector-icono {
+            display: inline-block;
+            animation: pulsoLento 2.5s ease-in-out infinite;
+            vertical-align: middle;
+        }
+
+        /* Efecto hover interactivo en las tarjetas */
+        .tarjeta-texto {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .tarjeta-texto:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Efecto hover sutil para las filas de la tabla comparativa */
+        .tabla-comparativa tr:hover {
+            background-color: #f1f5f9;
+        }
     </style>
 </head>
 <body>
     <div class="diapositiva">
+        <!-- Encabezado -->
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
             <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
                 <img src="img/cinthia.jpg" alt="Cinthia" class="avatar-titulo">
@@ -21,57 +59,79 @@
             <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
         </div>
         
+        <!-- Contenedor Principal Maestro -->
         <div class="layout-pc-maestro">
             <div class="columna-contenido-principal pc-row" style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
                 
+                <!-- Columna Izquierda: Tarjetas explicativas con animación -->
                 <div style="flex: 1; width: 100%; display: flex; flex-direction: column; gap: 12px;">
-                    <div class="tarjeta-texto" style="border-left-color: #3f51b5; background: linear-gradient(145deg, #ffffff, #e8eaf6); padding: 12px 18px;">
-                        <h4 style="margin: 0 0 6px 0; color: #283593; font-size: 1.05em;">📈 Interpretación Comparativa</h4>
+                    
+                    <!-- Tarjeta 1 -->
+                    <div class="tarjeta-texto tarjeta-animada-1" style="border-left-color: #3f51b5; background: linear-gradient(145deg, #ffffff, #e8eaf6); padding: 12px 18px;">
+                        <h4 style="margin: 0 0 6px 0; color: #283593; font-size: 1.05em; display: flex; align-items: center; gap: 8px;">
+                            <span class="vector-icono">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#283593" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                            </span>
+                            Interpretación Comparativa
+                        </h4>
                         <p style="margin: 0; font-size: 0.93em; color: #333; line-height: 1.45;">
                             Al aumentar la frecuencia de 15 a 24 rpm (60%), el período disminuye de 4 a 2,5 s (reducción del 37,5%). La frecuencia angular sube de 1,57 a 2,51 rad/s.
                         </p>
                     </div>
 
-                    <div class="tarjeta-texto" style="border-left-color: #009688; background: linear-gradient(145deg, #ffffff, #e0f2f1); padding: 12px 18px;">
-                        <h4 style="margin: 0 0 6px 0; color: #00695c; font-size: 1.05em;">💡 Análisis Físico-Fisiológico</h4>
+                    <!-- Tarjeta 2 -->
+                    <div class="tarjeta-texto tarjeta-animada-2" style="border-left-color: #009688; background: linear-gradient(145deg, #ffffff, #e0f2f1); padding: 12px 18px;">
+                        <h4 style="margin: 0 0 6px 0; color: #00695c; font-size: 1.05em; display: flex; align-items: center; gap: 8px;">
+                            <span class="vector-icono">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00695c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                            </span>
+                            Análisis Físico-Fisiológico
+                        </h4>
                         <p style="margin: 0; font-size: 0.93em; color: #333; line-height: 1.45;">
                             Los músculos activos demandan más oxígeno. El organismo responde aumentando la ventilación pulmonar, demostrando la relación inversa entre frecuencia y período.
                         </p>
                     </div>
 
-                    <div class="tarjeta-texto" style="border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fff3e0); padding: 12px 18px;">
-                        <h4 style="margin: 0 0 6px 0; color: #e65100; font-size: 1.05em;">📌 Conclusiones del Grupo</h4>
+                    <!-- Tarjeta 3 -->
+                    <div class="tarjeta-texto tarjeta-animada-3" style="border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fff3e0); padding: 12px 18px;">
+                        <h4 style="margin: 0 0 6px 0; color: #e65100; font-size: 1.05em; display: flex; align-items: center; gap: 8px;">
+                            <span class="vector-icono">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#e65100" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                            </span>
+                            Conclusiones del Grupo
+                        </h4>
                         <p style="margin: 0; font-size: 0.93em; color: #333; line-height: 1.45;">
                             La frecuencia, el período y la frecuencia angular describen cuantitativamente el carácter periódico del ciclo respiratorio.
                         </p>
                     </div>
                 </div>
 
-                <div style="width: 100%; max-width: 380px; display: flex; flex-direction: column; justify-content: center;">
+                <!-- Columna Derecha: Tabla Resumen con Animación -->
+                <div class="tabla-animada" style="width: 100%; max-width: 380px; display: flex; flex-direction: column; justify-content: center;">
                     <div style="background: white; border-radius: 14px; padding: 18px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); border: 3px solid #e2e8f0; width: 100%; box-sizing: border-box;">
                         <h4 style="margin-top: 0; color: #d32f2f; text-align: center; font-size: 1.1em; border-bottom: 2px solid #eee; padding-bottom: 8px;">Resumen de Magnitudes</h4>
-                        <table style="width: 100%; font-size: 0.92em; border-collapse: collapse; text-align: left;">
+                        <table class="tabla-comparativa" style="width: 100%; font-size: 0.92em; border-collapse: collapse; text-align: left;">
                             <tr style="border-bottom: 2px solid #ddd; background: #f8f9fa;">
                                 <th style="padding: 8px;">Magnitud</th>
                                 <th style="padding: 8px; color: #2e7d32;">Reposo</th>
                                 <th style="padding: 8px; color: #e65100;">Esfuerzo</th>
                             </tr>
-                            <tr style="border-bottom: 1px solid #eee;">
+                            <tr style="border-bottom: 1px solid #eee; transition: background 0.2s;">
                                 <td style="padding: 8px;"><strong>Respiraciones</strong></td>
                                 <td style="padding: 8px;">15 rpm</td>
                                 <td style="padding: 8px;">24 rpm</td>
                             </tr>
-                            <tr style="border-bottom: 1px solid #eee;">
+                            <tr style="border-bottom: 1px solid #eee; transition: background 0.2s;">
                                 <td style="padding: 8px;"><strong>Frecuencia</strong></td>
                                 <td style="padding: 8px;">0,25 Hz</td>
                                 <td style="padding: 8px;">0,40 Hz</td>
                             </tr>
-                            <tr style="border-bottom: 1px solid #eee;">
+                            <tr style="border-bottom: 1px solid #eee; transition: background 0.2s;">
                                 <td style="padding: 8px;"><strong>Período (T)</strong></td>
                                 <td style="padding: 8px;">4 s</td>
                                 <td style="padding: 8px;">2,5 s</td>
                             </tr>
-                            <tr>
+                            <tr style="transition: background 0.2s;">
                                 <td style="padding: 8px;"><strong>Freq. Angular</strong></td>
                                 <td style="padding: 8px;">1,57 rad/s</td>
                                 <td style="padding: 8px;">2,51 rad/s</td>
@@ -82,6 +142,7 @@
 
             </div>
 
+            <!-- Columna Derecha: Video y Navegación lateral -->
             <div class="columna-video-lateral">
                 <video id="videoExpositor" class="video-expositor" autoplay controls>
                     <source src="videos/07_cinthia.mp4" type="video/mp4">

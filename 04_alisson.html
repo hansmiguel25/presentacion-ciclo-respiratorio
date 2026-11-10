@@ -6,6 +6,51 @@
     <title>Presentación 4 - Alisson</title>
     <!-- Conexión al archivo principal de animaciones y estilos -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- ANIMACIONES PERSONALIZADAS EN CASCADA --- */
+        @keyframes tarjetaEntrada {
+            0% { opacity: 0; transform: translateY(25px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animaciones suaves para los iconos vectoriales */
+        @keyframes pulsoLento {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 5px rgba(3, 169, 244, 0.4)); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes giroSuave {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .tarjeta-grid-1 { animation: tarjetaEntrada 0.6s ease forwards 0.2s; opacity: 0; }
+        .tarjeta-grid-2 { animation: tarjetaEntrada 0.6s ease forwards 0.4s; opacity: 0; }
+        .tarjeta-grid-3 { animation: tarjetaEntrada 0.6s ease forwards 0.6s; opacity: 0; }
+        .tarjeta-grid-4 { animation: tarjetaEntrada 0.6s ease forwards 0.8s; opacity: 0; }
+
+        /* Clases de animación para los iconos */
+        .vector-ciclo { display: inline-block; animation: giroSuave 4s ease-in-out infinite; vertical-align: middle; }
+        .vector-latido { display: inline-block; animation: pulsoLento 2s ease-in-out infinite; vertical-align: middle; }
+
+        /* Efecto hover interactivo para las tarjetas */
+        .tarjeta-texto {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .tarjeta-texto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+        }
+
+        /* Estilo responsivo para la cuadrícula en móviles */
+        @media (max-width: 768px) {
+            .grid-fundamentos {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="diapositiva">
@@ -22,25 +67,40 @@
         <!-- Layout Maestro de PC (Contenido izq / Video y botones der) -->
         <div class="layout-pc-maestro">
             
-            <!-- Columna Izquierda: Cuadrícula 2x2 optimizada -->
+            <!-- Columna Izquierda: Cuadrícula 2x2 optimizada con iconos vectoriales -->
             <div class="columna-contenido-principal">
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%;">
+                <div class="grid-fundamentos" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%;">
                     
                     <!-- Tarjeta 1: Ciclo Respiratorio -->
-                    <div class="tarjeta-texto" style="border-left-color: #03a9f4; background: linear-gradient(145deg, #ffffff, #e1f5fe); padding: 16px 22px;">
-                        <h3 style="margin-top: 0; margin-bottom: 8px; color: #0288d1; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">🔄 Ciclo Respiratorio</h3>
+                    <div class="tarjeta-texto tarjeta-grid-1" style="border-left-color: #03a9f4; background: linear-gradient(145deg, #ffffff, #e1f5fe); padding: 16px 22px;">
+                        <h3 style="margin-top: 0; margin-bottom: 8px; color: #0288d1; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">
+                            <span class="vector-ciclo">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0288d1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>
+                            </span>
+                            Ciclo Respiratorio
+                        </h3>
                         <p style="font-size: 0.95em; margin-bottom: 0; line-height: 1.45; color: #444;">Comprende una inspiración (el diafragma se contrae y desciende) y una espiración (salida pasiva del aire).</p>
                     </div>
 
                     <!-- Tarjeta 2: Frecuencia -->
-                    <div class="tarjeta-texto" style="border-left-color: #4caf50; background: linear-gradient(145deg, #ffffff, #e8f5e9); padding: 16px 22px;">
-                        <h3 style="margin-top: 0; margin-bottom: 8px; color: #388e3c; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">⏱️ Frecuencia (f)</h3>
+                    <div class="tarjeta-texto tarjeta-grid-2" style="border-left-color: #4caf50; background: linear-gradient(145deg, #ffffff, #e8f5e9); padding: 16px 22px;">
+                        <h3 style="margin-top: 0; margin-bottom: 8px; color: #388e3c; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">
+                            <span class="vector-latido">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#388e3c" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                            </span>
+                            Frecuencia (f)
+                        </h3>
                         <p style="font-size: 0.95em; margin-bottom: 0; line-height: 1.45; color: #444;">Indica cuántos ciclos se realizan en una unidad de tiempo; se expresa en hercios (ciclos por segundo).</p>
                     </div>
 
                     <!-- Tarjeta 3: Período -->
-                    <div class="tarjeta-texto" style="border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fff3e0); padding: 16px 22px;">
-                        <h3 style="margin-top: 0; margin-bottom: 6px; color: #f57c00; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">⏳ Período (T)</h3>
+                    <div class="tarjeta-texto tarjeta-grid-3" style="border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fff3e0); padding: 16px 22px;">
+                        <h3 style="margin-top: 0; margin-bottom: 6px; color: #f57c00; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">
+                            <span class="vector-ciclo">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f57c00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            </span>
+                            Período (T)
+                        </h3>
                         <p style="font-size: 0.93em; margin-bottom: 10px; line-height: 1.4; color: #444;">Tiempo que tarda en completarse un ciclo; es inversamente proporcional a la frecuencia.</p>
                         <div style="background: rgba(255,152,0,0.15); padding: 8px; border-radius: 8px; text-align: center; font-size: 1.15em; font-weight: bold; color: #e65100;">
                             T = 1 / f
@@ -48,8 +108,13 @@
                     </div>
 
                     <!-- Tarjeta 4: Frecuencia Angular -->
-                    <div class="tarjeta-texto" style="border-left-color: #9c27b0; background: linear-gradient(145deg, #ffffff, #f3e5f5); padding: 16px 22px;">
-                        <h3 style="margin-top: 0; margin-bottom: 6px; color: #7b1fa2; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">🌀 Frecuencia Angular (&omega;)</h3>
+                    <div class="tarjeta-texto tarjeta-grid-4" style="border-left-color: #9c27b0; background: linear-gradient(145deg, #ffffff, #f3e5f5); padding: 16px 22px;">
+                        <h3 style="margin-top: 0; margin-bottom: 6px; color: #7b1fa2; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">
+                            <span class="vector-latido">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7b1fa2" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                            </span>
+                            Frecuencia Angular (&omega;)
+                        </h3>
                         <p style="font-size: 0.93em; margin-bottom: 10px; line-height: 1.4; color: #444;">Expresa la rapidez matemática con la que avanza la fase del fenómeno periódico.</p>
                         <div style="background: rgba(156,39,176,0.15); padding: 8px; border-radius: 8px; text-align: center; font-size: 1.15em; font-weight: bold; color: #6a1b9a;">
                             &omega; = 2&pi;f
@@ -76,11 +141,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var video = document.getElementById("videoExpositor");
-            
-            // Forzar volumen al máximo (100%)
             video.volume = 1.0;
-
-            // Salto automático a la siguiente presentación al terminar el video
             video.addEventListener("ended", function() {
                 window.location.href = "05_marienela.html";
             });

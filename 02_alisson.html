@@ -6,6 +6,77 @@
     <title>Presentación 2 - Alisson</title>
     <!-- Conexión al archivo principal de estilos y animaciones -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- ESTILOS PARA ALINEACIÓN EN PC --- */
+        @media (min-width: 901px) {
+            .pc-row { flex-direction: row !important; }
+        }
+
+        /* --- ANIMACIONES PERSONALIZADAS --- */
+        @keyframes tarjetaEntrada {
+            0% {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes imagenZoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Animación para iconos flotantes relacionados al tema */
+        @keyframes flotarIcono {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-12px) rotate(8deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.6;
+            }
+        }
+
+        /* Aplicar animación en cascada secuencial a las tarjetas */
+        .tarjeta-animada-1 { animation: tarjetaEntrada 0.6s ease forwards 0.2s; opacity: 0; }
+        .tarjeta-animada-2 { animation: tarjetaEntrada 0.6s ease forwards 0.4s; opacity: 0; }
+        .tarjeta-animada-3 { animation: tarjetaEntrada 0.6s ease forwards 0.6s; opacity: 0; }
+        .tarjeta-animada-4 { animation: tarjetaEntrada 0.6s ease forwards 0.8s; opacity: 0; }
+
+        /* Animación para la imagen lateral */
+        .imagen-animada {
+            animation: imagenZoomIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards 0.5s;
+            opacity: 0;
+        }
+
+        /* Estilo y movimiento dinámico para los iconos temáticos flotantes */
+        .icono-flotante {
+            display: inline-block;
+            animation: flotarIcono 3s ease-in-out infinite;
+            margin-right: 8px;
+        }
+
+        /* Efecto hover elegante en las tarjetas de texto */
+        .tarjeta-texto:hover {
+            transform: translateX(8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+    </style>
 </head>
 <body>
     <div class="diapositiva">
@@ -13,7 +84,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
             <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
                 <img src="img/alisson.jpg" alt="Alisson" class="avatar-titulo">
-                Resumen e Introducción
+                Resumen e Introducción <span class="icono-flotante">🫁</span>
             </h1>
             <!-- Logo de la UTP sin fondo ubicado en la esquina superior derecha -->
             <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
@@ -23,27 +94,27 @@
         <div class="layout-pc-maestro">
             
             <!-- Columna Izquierda: Tarjetas de texto y la imagen de los pulmones -->
-            <div class="columna-contenido-principal" style="flex-direction: row; gap: 25px; align-items: center;">
+            <div class="columna-contenido-principal pc-row" style="display: flex; flex-direction: column; gap: 25px; align-items: center;">
                 
-                <!-- Tarjetas de conceptos -->
-                <div style="flex: 1; display: flex; flex-direction: column; gap: 12px;">
-                    <div class="tarjeta-texto" style="padding: 12px 18px; font-size: 1em; border-left-color: #03a9f4; background: linear-gradient(145deg, #ffffff, #f0f9ff);">
-                        El <strong>ciclo respiratorio</strong> se analiza como un fenómeno periódico utilizando los conceptos de frecuencia, período y frecuencia angular.
+                <!-- Tarjetas de conceptos con animaciones e iconos móviles -->
+                <div style="flex: 1; width: 100%; display: flex; flex-direction: column; gap: 12px;">
+                    <div class="tarjeta-texto tarjeta-animada-1" style="padding: 12px 18px; font-size: 1em; border-left-color: #03a9f4; background: linear-gradient(145deg, #ffffff, #f0f9ff);">
+                        <span class="icono-flotante">🔄</span> El <strong>ciclo respiratorio</strong> se analiza como un fenómeno periódico utilizando los conceptos de frecuencia, período y frecuencia angular.
                     </div>
-                    <div class="tarjeta-texto" style="padding: 12px 18px; font-size: 1em; border-left-color: #4caf50; background: linear-gradient(145deg, #ffffff, #f1f8e9);">
-                        La respiración es una <strong>función vital</strong> mediante la cual el organismo incorpora oxígeno y elimina dióxido de carbono.
+                    <div class="tarjeta-texto tarjeta-animada-2" style="padding: 12px 18px; font-size: 1em; border-left-color: #4caf50; background: linear-gradient(145deg, #ffffff, #f1f8e9);">
+                        <span class="icono-flotante">💨</span> La respiración es una <strong>función vital</strong> mediante la cual el organismo incorpora oxígeno y elimina dióxido de carbono.
                     </div>
-                    <div class="tarjeta-texto" style="padding: 12px 18px; font-size: 1em; border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fffdf0);">
-                        El proceso incluye <strong>movimientos coordinados</strong> del tórax y del diafragma para permitir el ingreso y salida del aire de los pulmones.
+                    <div class="tarjeta-texto tarjeta-animada-3" style="padding: 12px 18px; font-size: 1em; border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fffdf0);">
+                        <span class="icono-flotante">🫁</span> El proceso incluye <strong>movimientos coordinados</strong> del tórax y del diafragma para permitir el ingreso y salida del aire de los pulmones.
                     </div>
-                    <div class="tarjeta-texto" style="padding: 12px 18px; font-size: 1em; border-left-color: #9c27b0; background: linear-gradient(145deg, #ffffff, #fbf5ff);">
-                        Desde la física, la inspiración y espiración se repiten de manera sucesiva, permitiendo calcular la <strong>rapidez matemática del ciclo</strong>.
+                    <div class="tarjeta-texto tarjeta-animada-4" style="padding: 12px 18px; font-size: 1em; border-left-color: #9c27b0; background: linear-gradient(145deg, #ffffff, #fbf5ff);">
+                        <span class="icono-flotante">📈</span> Desde la física, la inspiración y espiración se repiten de manera sucesiva, permitiendo calcular la <strong>rapidez matemática del ciclo</strong>.
                     </div>
                 </div>
 
-                <!-- Imagen ilustrativa de los pulmones -->
-                <div style="width: 38%; display: flex; align-items: center; justify-content: center;">
-                    <img src="img/pulmones.jpg" alt="Ciclo Respiratorio" style="width: 100%; max-height: 330px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); border: 4px solid white; object-fit: contain; background: #fff;">
+                <!-- Imagen ilustrativa de los pulmones con animación -->
+                <div class="imagen-animada" style="width: 100%; max-width: 350px; display: flex; align-items: center; justify-content: center;">
+                    <img src="img/pulmones.jpg" alt="Ciclo Respiratorio" style="width: 100%; max-height: 310px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); border: 4px solid white; object-fit: contain; background: #fff;">
                 </div>
 
             </div>

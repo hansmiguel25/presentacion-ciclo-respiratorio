@@ -6,25 +6,80 @@
     <title>Presentación 3 - Nickol</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* --- ANIMACIONES PERSONALIZADAS --- */
+        @keyframes tarjetaEntrada {
+            0% { opacity: 0; transform: translateY(25px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulsoReposo {
+            0% { transform: scale(1); opacity: 0.85; }
+            50% { transform: scale(1.06); opacity: 1; filter: drop-shadow(0 0 6px rgba(76, 175, 80, 0.4)); }
+            100% { transform: scale(1); opacity: 0.85; }
+        }
+
+        @keyframes troteEsfuerzo {
+            0% { transform: translateX(0px); }
+            50% { transform: translateX(6px); }
+            100% { transform: translateX(0px); }
+        }
+
+        @keyframes flotarIcono {
+            0% { transform: translateY(0px); opacity: 0.8; }
+            50% { transform: translateY(-6px); opacity: 1; }
+            100% { transform: translateY(0px); opacity: 0.8; }
+        }
+
+        /* Cascada de entrada para las tarjetas y el bloque inferior */
+        .escenario-animado-1 { animation: tarjetaEntrada 0.6s ease forwards 0.2s; opacity: 0; }
+        .escenario-animado-2 { animation: tarjetaEntrada 0.6s ease forwards 0.4s; opacity: 0; }
+        .escenario-animado-3 { animation: tarjetaEntrada 0.6s ease forwards 0.6s; opacity: 0; }
+
+        .vector-reposo {
+            display: inline-block;
+            animation: pulsoReposo 3s ease-in-out infinite;
+            vertical-align: middle;
+        }
+
+        .vector-movimiento {
+            display: inline-block;
+            animation: troteEsfuerzo 0.8s ease-in-out infinite alternate;
+            vertical-align: middle;
+        }
+
+        .icono-flotante {
+            display: inline-block;
+            animation: flotarIcono 3s ease-in-out infinite;
+        }
+
         .tarjeta-escenario {
             display: flex;
             align-items: center;
             gap: 20px;
-            padding: 16px 20px;
-            margin-bottom: 15px;
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
         }
+
+        .tarjeta-escenario:hover {
+            transform: translateX(8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
         .img-escenario {
-            width: 120px;
-            height: 120px;
+            width: 105px;
+            height: 105px;
             object-fit: cover;
             object-position: top;
             border-radius: 12px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.15);
             border: 3px solid white;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-        .tarjeta-texto:hover .img-escenario {
+
+        .tarjeta-escenario:hover .img-escenario {
             transform: scale(1.06) rotate(-2deg);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
         }
     </style>
 </head>
@@ -41,25 +96,61 @@
         
         <!-- Layout Maestro de PC -->
         <div class="layout-pc-maestro">
-            <!-- Columna Izquierda: Tarjetas de Escenarios -->
-            <div class="columna-contenido-principal">
-                <div class="tarjeta-texto tarjeta-escenario" style="border-left-color: #4CAF50; background: linear-gradient(145deg, #ffffff, #f1f8e9);">
+            <!-- Columna Izquierda: Tarjetas de Escenarios + Tarjeta Inferior de Relleno -->
+            <div class="columna-contenido-principal" style="display: flex; flex-direction: column; gap: 12px;">
+                
+                <!-- Escenario 1: Reposo -->
+                <div class="tarjeta-texto tarjeta-escenario escenario-animado-1" style="border-left-color: #4CAF50; background: linear-gradient(145deg, #ffffff, #f1f8e9);">
                     <img src="img/image_4f3f51.jpg" alt="Adulto en reposo" class="img-escenario">
                     <div style="flex: 1;">
-                        <h2 style="margin-top: 0; margin-bottom: 6px; color: #2e7d32; font-size: 1.2em;">🧘‍♂️ Escenario Práctico 1: Reposo</h2>
-                        <p style="margin-bottom: 6px; font-size: 0.95em; color: #444;">Se observa a un adulto sentado y en reposo durante un minuto completo.</p>
-                        <p style="margin: 0; font-size: 1em; color: #1b5e20;"><strong>Dato inicial:</strong> 15 ciclos respiratorios (15 rpm).</p>
+                        <h2 style="margin-top: 0; margin-bottom: 4px; color: #2e7d32; font-size: 1.1em; display: flex; align-items: center; gap: 8px;">
+                            <span class="vector-reposo" title="En Reposo">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2e7d32" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="5" r="3"></circle>
+                                    <path d="M6 20l2-8h8l2 8"></path>
+                                    <path d="M10 12h4"></path>
+                                    <path d="M2 15c2-2 4-2 6 0"></path>
+                                    <path d="M16 15c2-2 4-2 6 0"></path>
+                                </svg>
+                            </span>
+                            Escenario Práctico 1: Reposo
+                        </h2>
+                        <p style="margin-bottom: 4px; font-size: 0.9em; color: #444;">Se observa a un adulto sentado y en reposo durante un minuto completo.</p>
+                        <p style="margin: 0; font-size: 0.95em; color: #1b5e20;"><strong>Dato inicial:</strong> 15 ciclos respiratorios (15 rpm).</p>
                     </div>
                 </div>
 
-                <div class="tarjeta-texto tarjeta-escenario" style="border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fff3e0);">
+                <!-- Escenario 2: Esfuerzo -->
+                <div class="tarjeta-texto tarjeta-escenario escenario-animado-2" style="border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fff3e0);">
                     <img src="img/image_4f3f16.jpg" alt="Adulto en esfuerzo" class="img-escenario">
                     <div style="flex: 1;">
-                        <h2 style="margin-top: 0; margin-bottom: 6px; color: #e65100; font-size: 1.2em;">🏃‍♂️ Escenario Práctico 2: Esfuerzo</h2>
-                        <p style="margin-bottom: 6px; font-size: 0.95em; color: #444;">El adulto incrementa su actividad física mediante una prueba de esfuerzo o caminata ligera.</p>
-                        <p style="margin: 0; font-size: 1em; color: #e65100;"><strong>Dato inicial:</strong> Aumenta a 24 respiraciones por minuto.</p>
+                        <h2 style="margin-top: 0; margin-bottom: 4px; color: #e65100; font-size: 1.1em; display: flex; align-items: center; gap: 8px;">
+                            <span class="vector-movimiento" title="En Movimiento / Esfuerzo">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#e65100" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="18" cy="5" r="2.5"></circle>
+                                    <path d="M6 19l3-5-2-3"></path>
+                                    <path d="M13 14l-3-3 4-3 3 4 2 3"></path>
+                                    <path d="M4 11l3 1 2 3"></path>
+                                    <path d="M2 20h4"></path>
+                                </svg>
+                            </span>
+                            Escenario Práctico 2: Esfuerzo
+                        </h2>
+                        <p style="margin-bottom: 4px; font-size: 0.9em; color: #444;">El adulto incrementa su actividad física mediante una prueba de esfuerzo o caminata ligera.</p>
+                        <p style="margin: 0; font-size: 0.95em; color: #e65100;"><strong>Dato inicial:</strong> Aumenta a 24 respiraciones por minuto.</p>
                     </div>
                 </div>
+
+                <!-- Tarjeta Inferior de Relleno (Aprovecha el espacio en blanco y da contexto físico) -->
+                <div class="tarjeta-texto escenario-animado-3" style="border-left-color: #d32f2f; background: linear-gradient(145deg, #ffffff, #fdf2f2); padding: 12px 18px; margin-top: 2px;">
+                    <h4 style="margin: 0 0 4px 0; color: #d32f2f; font-size: 0.98em; display: flex; align-items: center; gap: 8px;">
+                        <span>💡 Objetivo del Análisis</span>
+                    </h4>
+                    <p style="margin: 0; font-size: 0.91em; color: #444; line-height: 1.4;">
+                        Ambos escenarios permiten contrastar el comportamiento del sistema respiratorio bajo demandas metabólicas basales frente a un estado de exigencia física.
+                    </p>
+                </div>
+
             </div>
 
             <!-- Columna Derecha: Video y Navegación lateral -->
@@ -78,11 +169,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var video = document.getElementById("videoExpositor");
-            
-            // Forzar el volumen al máximo (100%) al cargar la página
             video.volume = 1.0;
-
-            // Cuando termine el video de Nickol, pasa automáticamente a la siguiente página
             video.addEventListener("ended", function() {
                 window.location.href = "04_alisson.html";
             });
