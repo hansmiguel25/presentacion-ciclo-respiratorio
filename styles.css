@@ -396,3 +396,88 @@ h1 {
         margin-top: 10px;
     }
 }
+
+/* --- ANIMACIONES DE PULSO Y RESPIRACIÓN REALISTA --- */
+
+/* Efecto de respiración pulmonar (expansión y contracción suave) */
+@keyframes respiracionPulmonar {
+    0% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(3, 169, 244, 0.3)); }
+    50% { transform: scale(1.12); filter: drop-shadow(0 0 12px rgba(3, 169, 244, 0.7)); }
+    100% { transform: scale(1); filter: drop-shadow(0 0 4px rgba(3, 169, 244, 0.3)); }
+}
+
+/* Efecto de trote / esfuerzo activo */
+@keyframes troteActivo {
+    0% { transform: translateX(0px) rotate(0deg); }
+    25% { transform: translateX(5px) rotate(-4deg); }
+    50% { transform: translateX(0px) rotate(0deg); }
+    75% { transform: translateX(-5px) rotate(4deg); }
+    100% { transform: translateX(0px) rotate(0deg); }
+}
+
+/* Clases listas para usar en tus HTMLs */
+.animacion-pulmon {
+    display: inline-block;
+    animation: respiracionPulmonar 3s ease-in-out infinite;
+}
+
+.animacion-corredor {
+    display: inline-block;
+    animation: troteActivo 0.6s ease-in-out infinite;
+}
+
+
+
+/* --- DISEÑO GENERATIVO DE PULMÓN ANIMADO --- */
+
+/* Definimos la animación de respiración del círculo */
+@keyframes respiracionAlveolo {
+    0% {
+        r: 30; /* Radio inicial pequeño */
+        fill: #4fc3f7; /* Color cian claro (reposo) */
+        filter: drop-shadow(0 0 5px rgba(79, 195, 247, 0.5));
+    }
+    50% {
+        r: 55; /* Radio máximo (inspiración) */
+        fill: #0277bd; /* Color azul intenso (oxigenación) */
+        filter: drop-shadow(0 0 15px rgba(2, 119, 189, 0.9));
+    }
+    100% {
+        r: 30; /* Radio final pequeño (espiración) */
+        fill: #4fc3f7;
+        filter: drop-shadow(0 0 5px rgba(79, 195, 247, 0.5));
+    }
+}
+
+/* Definimos la animación de las ondas de aire */
+@keyframes ondasAire {
+    0% {
+        stroke-dashoffset: 100;
+        opacity: 0;
+    }
+    50% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+    100% {
+        stroke-dashoffset: -100;
+        opacity: 0;
+    }
+}
+
+/* Clase CSS para aplicar la animación al elemento gráfico */
+.pulmon-animado {
+    /* Aplicamos la animación, duración 4s, infinita, suave */
+    animation: respiracionAlveolo 4s ease-in-out infinite;
+    transform-origin: center; /* Importante para que escale desde el centro */
+}
+
+.onda-aire-animada {
+    stroke: #d32f2f;
+    stroke-width: 2;
+    fill: none;
+    /* Usamos stroke-dasharray y offset para animar la línea */
+    stroke-dasharray: 50;
+    stroke-dashoffset: 100;
+    animation: ondasAire 4s linear infinite;
+}

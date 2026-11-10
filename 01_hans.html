@@ -6,14 +6,75 @@
     <title>Presentación 1 - Bienvenida</title>
     <!-- Conexión al archivo principal de estilos -->
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- ANIMACIONES PERSONALIZADAS EN CASCADA --- */
+        @keyframes tarjetaEntrada {
+            0% { opacity: 0; transform: translateY(25px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Animación de respiración rítmica para el pulmón SVG */
+        @keyframes respiracionPulmon {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(211, 47, 47, 0.3)); }
+            50% { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(211, 47, 47, 0.7)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(211, 47, 47, 0.3)); }
+        }
+
+        .bienvenida-animada-1 { animation: tarjetaEntrada 0.6s ease forwards 0.2s; opacity: 0; }
+        .bienvenida-animada-2 { animation: tarjetaEntrada 0.6s ease forwards 0.3s; opacity: 0; }
+        .bienvenida-animada-3 { animation: tarjetaEntrada 0.6s ease forwards 0.4s; opacity: 0; }
+        
+        /* Cascada para las tarjetas de los integrantes */
+        .integrante-1 { animation: tarjetaEntrada 0.5s ease forwards 0.5s; opacity: 0; }
+        .integrante-2 { animation: tarjetaEntrada 0.5s ease forwards 0.6s; opacity: 0; }
+        .integrante-3 { animation: tarjetaEntrada 0.5s ease forwards 0.7s; opacity: 0; }
+        .integrante-4 { animation: tarjetaEntrada 0.5s ease forwards 0.8s; opacity: 0; }
+        .integrante-5 { animation: tarjetaEntrada 0.5s ease forwards 0.9s; opacity: 0; }
+        .integrante-6 { animation: tarjetaEntrada 0.5s ease forwards 1.0s; opacity: 0; }
+
+        /* Clase aplicada al icono del pulmón para que "respire" */
+        .pulmon-vectorial-animado {
+            display: inline-block;
+            animation: respiracionPulmon 3.5s ease-in-out infinite;
+            transform-origin: center;
+            vertical-align: middle;
+        }
+
+        /* Efecto hover interactivo en las tarjetas de los integrantes */
+        .tarjeta-integrante {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        
+        .tarjeta-integrante:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border-color: #d32f2f;
+        }
+    </style>
 </head>
 <body>
     <div class="diapositiva">
-        <!-- Encabezado con Logo UTP y Título -->
+        <!-- Encabezado con Logo UTP y Título con el Pulmón Animado -->
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
             <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
                 <img src="img/hans.jpg" alt="Hans" class="avatar-titulo">
                 Análisis físico-fisiológico del ciclo respiratorio
+                
+                <!-- Pulmón Vectorial Animado (Diseño Propio) -->
+                <span class="pulmon-vectorial-animado" title="Pulmón en ciclo respiratorio">
+                    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v6"></path>
+                        <path d="M9 7c-3 0-5 2-5 5 0 3 2 6 5 7 1-.5 2-2 2-4V9c0-1.1-.9-2-2-2z"></path>
+                        <path d="M15 7c3 0 5 2 5 5 0 3-2 6-5 7-1-.5-2-2-2-4V9c0-1.1.9-2 2-2z"></path>
+                    </svg>
+                </span>
             </h1>
             <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
         </div>
@@ -23,42 +84,50 @@
             
             <!-- Columna Izquierda: Bienvenida e Integrantes -->
             <div class="columna-contenido-principal">
-                <h2 style="color: #333; margin-top: 0; font-size: 1.5em; margin-bottom: 12px;">Bienvenidos - Grupo 1</h2>
-                <p style="font-size: 1.15em; color: #555; margin-bottom: 20px; line-height: 1.5;">El tema a presentar es el análisis físico-fisiológico del ciclo respiratorio.</p>
-                <p style="font-size: 1.05em; font-weight: bold; color: #333; margin-bottom: 12px;">Integrantes del equipo de trabajo:</p>
+                <h2 class="bienvenida-animada-1" style="color: #333; margin-top: 0; font-size: 1.45em; margin-bottom: 10px;">
+                    Bienvenidos - Grupo 1
+                </h2>
+                <p class="bienvenida-animada-2" style="font-size: 1.1em; color: #555; margin-bottom: 18px; line-height: 1.5;">El tema a presentar es el análisis físico-fisiológico del ciclo respiratorio.</p>
+                <p class="bienvenida-animada-3" style="font-size: 1em; font-weight: bold; color: #333; margin-bottom: 12px;">Integrantes del equipo de trabajo:</p>
                 
-                <!-- Cuadrícula de integrantes -->
+                <!-- Cuadrícula de integrantes con animaciones escalonadas -->
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;">
-                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
-                        <img src="img/nickol.jpg" alt="Nickol" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
-                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Castañeda Viña, Drisjhely Nickol</span>
+                    
+                    <div class="tarjeta-integrante integrante-1">
+                        <img src="img/nickol.jpg" alt="Nickol" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; margin-right: 12px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.92em; font-weight: 600; color: #2d3748;">Castañeda Viña, Drisjhely Nickol</span>
                     </div>
-                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
-                        <img src="img/cinthia.jpg" alt="Cinthia" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
-                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Ccorahua Mendez, Cinthia</span>
+
+                    <div class="tarjeta-integrante integrante-2">
+                        <img src="img/cinthia.jpg" alt="Cinthia" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; margin-right: 12px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.92em; font-weight: 600; color: #2d3748;">Ccorahua Mendez, Cinthia</span>
                     </div>
-                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
-                        <img src="img/alisson.jpg" alt="Alisson" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
-                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Leon Flores, Alisson Milagros</span>
+
+                    <div class="tarjeta-integrante integrante-3">
+                        <img src="img/alisson.jpg" alt="Alisson" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; margin-right: 12px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.92em; font-weight: 600; color: #2d3748;">Leon Flores, Alisson Milagros</span>
                     </div>
-                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
-                        <img src="img/hans.jpg" alt="Hans" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
-                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Miguel Diaz, Hans Alejandro</span>
+
+                    <div class="tarjeta-integrante integrante-4">
+                        <img src="img/hans.jpg" alt="Hans" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; margin-right: 12px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.92em; font-weight: 600; color: #2d3748;">Miguel Diaz, Hans Alejandro</span>
                     </div>
-                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
-                        <img src="img/marianela.jpg" alt="Marianela" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
-                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Vasquez Diestra, Marianela Dorali</span>
+
+                    <div class="tarjeta-integrante integrante-5">
+                        <img src="img/marianela.jpg" alt="Marianela" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; margin-right: 12px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.92em; font-weight: 600; color: #2d3748;">Vasquez Diestra, Marianela Dorali</span>
                     </div>
-                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
-                        <img src="img/noemi.jpg" alt="Noemi" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
-                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Vega Garro, Noemi</span>
+
+                    <div class="tarjeta-integrante integrante-6">
+                        <img src="img/noemi.jpg" alt="Noemi" style="width: 42px; height: 42px; border-radius: 50%; object-fit: cover; margin-right: 12px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.92em; font-weight: 600; color: #2d3748;">Vega Garro, Noemi</span>
                     </div>
+
                 </div>
             </div>
 
             <!-- Columna Derecha: Video Lateral y Botón Siguiente -->
             <div class="columna-video-lateral">
-                <!-- Se agregó ID, se quitó 'muted' y se habilitó volumen máximo -->
                 <video id="videoExpositor" class="video-expositor" autoplay controls>
                     <source src="videos/01_hans.mp4" type="video/mp4">
                 </video>

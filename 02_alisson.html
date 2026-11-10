@@ -14,41 +14,26 @@
 
         /* --- ANIMACIONES PERSONALIZADAS --- */
         @keyframes tarjetaEntrada {
-            0% {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            0% { opacity: 0; transform: translateY(25px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes imagenZoomIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
-        /* Animación para iconos flotantes relacionados al tema */
+        /* Animación de respiración rítmica para el pulmón SVG */
+        @keyframes respiracionPulmon {
+            0% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(211, 47, 47, 0.3)); }
+            50% { transform: scale(1.15); filter: drop-shadow(0 0 8px rgba(211, 47, 47, 0.7)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(211, 47, 47, 0.3)); }
+        }
+
         @keyframes flotarIcono {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0.6;
-            }
-            50% {
-                transform: translateY(-12px) rotate(8deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(0px) rotate(0deg);
-                opacity: 0.6;
-            }
+            0% { transform: translateY(0px); opacity: 0.7; }
+            50% { transform: translateY(-6px); opacity: 1; }
+            100% { transform: translateY(0px); opacity: 0.7; }
         }
 
         /* Aplicar animación en cascada secuencial a las tarjetas */
@@ -57,20 +42,24 @@
         .tarjeta-animada-3 { animation: tarjetaEntrada 0.6s ease forwards 0.6s; opacity: 0; }
         .tarjeta-animada-4 { animation: tarjetaEntrada 0.6s ease forwards 0.8s; opacity: 0; }
 
-        /* Animación para la imagen lateral */
         .imagen-animada {
             animation: imagenZoomIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards 0.5s;
             opacity: 0;
         }
 
-        /* Estilo y movimiento dinámico para los iconos temáticos flotantes */
+        /* Clase aplicada al gráfico SVG del pulmón para que "respire" */
+        .pulmon-vectorial-animado {
+            display: inline-block;
+            animation: respiracionPulmon 3.5s ease-in-out infinite;
+            transform-origin: center;
+        }
+
         .icono-flotante {
             display: inline-block;
             animation: flotarIcono 3s ease-in-out infinite;
             margin-right: 8px;
         }
 
-        /* Efecto hover elegante en las tarjetas de texto */
         .tarjeta-texto:hover {
             transform: translateX(8px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -80,23 +69,33 @@
 </head>
 <body>
     <div class="diapositiva">
-        <!-- Encabezado con el Logo de la UTP y el título personalizado con el avatar de Alisson -->
+        <!-- Encabezado con el Logo de la UTP y el título con el pulmón animado real -->
         <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
             <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
                 <img src="img/alisson.jpg" alt="Alisson" class="avatar-titulo">
-                Resumen e Introducción <span class="icono-flotante">🫁</span>
+                Resumen e Introducción 
+                
+                <!-- Pulmón Vectorial Animado con Código (Diseño Propio que simula respiración) -->
+                <span class="pulmon-vectorial-animado" title="Pulmón en ciclo respiratorio">
+                    <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v6"></path>
+                        <path d="M9 7c-3 0-5 2-5 5 0 3 2 6 5 7 1-.5 2-2 2-4V9c0-1.1-.9-2-2-2z"></path>
+                        <path d="M15 7c3 0 5 2 5 5 0 3-2 6-5 7-1-.5-2-2-2-4V9c0-1.1.9-2 2-2z"></path>
+                    </svg>
+                </span>
             </h1>
-            <!-- Logo de la UTP sin fondo ubicado en la esquina superior derecha -->
+            
+            <!-- Logo de la UTP -->
             <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
         </div>
         
-        <!-- Layout Maestro de PC (Contenido izq / Video y botones der) -->
+        <!-- Layout Maestro de PC -->
         <div class="layout-pc-maestro">
             
             <!-- Columna Izquierda: Tarjetas de texto y la imagen de los pulmones -->
             <div class="columna-contenido-principal pc-row" style="display: flex; flex-direction: column; gap: 25px; align-items: center;">
                 
-                <!-- Tarjetas de conceptos con animaciones e iconos móviles -->
+                <!-- Tarjetas de conceptos -->
                 <div style="flex: 1; width: 100%; display: flex; flex-direction: column; gap: 12px;">
                     <div class="tarjeta-texto tarjeta-animada-1" style="padding: 12px 18px; font-size: 1em; border-left-color: #03a9f4; background: linear-gradient(145deg, #ffffff, #f0f9ff);">
                         <span class="icono-flotante">🔄</span> El <strong>ciclo respiratorio</strong> se analiza como un fenómeno periódico utilizando los conceptos de frecuencia, período y frecuencia angular.
@@ -112,7 +111,7 @@
                     </div>
                 </div>
 
-                <!-- Imagen ilustrativa de los pulmones con animación -->
+                <!-- Imagen ilustrativa -->
                 <div class="imagen-animada" style="width: 100%; max-width: 350px; display: flex; align-items: center; justify-content: center;">
                     <img src="img/pulmones.jpg" alt="Ciclo Respiratorio" style="width: 100%; max-height: 310px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); border: 4px solid white; object-fit: contain; background: #fff;">
                 </div>
@@ -136,11 +135,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var video = document.getElementById("videoExpositor");
-            
-            // Configurar volumen al máximo (100%)
             video.volume = 1.0;
-
-            // Cuando termine el video de Alisson, pasa automáticamente a la siguiente diapositiva
             video.addEventListener("ended", function() {
                 window.location.href = "03_nickol.html";
             });
