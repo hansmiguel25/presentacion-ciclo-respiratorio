@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación 5 - Marianela</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @media (min-width: 901px) {
+            .pc-row { flex-direction: row !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="diapositiva">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+            <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
+                <img src="img/marianela.jpg" alt="Marianela" class="avatar-titulo">
+                Desarrollo - Escenario 1 (Reposo)
+            </h1>
+            <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
+        </div>
+        
+        <div class="layout-pc-maestro">
+            <div class="columna-contenido-principal pc-row" style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+                <div style="flex: 1; width: 100%; display: flex; flex-direction: column; gap: 10px;">
+                    <h3 style="color: #444; margin-top: 0; font-size: 1.1em;">📊 Datos iniciales: 15 respiraciones / 60 s</h3>
+                    
+                    <div class="tarjeta-texto" style="border-left-color: #03a9f4; background: linear-gradient(145deg, #ffffff, #e1f5fe); padding: 10px 15px;">
+                        <h4 style="margin: 0 0 3px 0; color: #0288d1; font-size: 0.95em;">Paso 1: Frecuencia en Hercios (f)</h4>
+                        <div style="font-size: 1.05em; font-family: 'Courier New', Courier, monospace; background: rgba(3,169,244,0.1); padding: 5px; border-radius: 6px; text-align: center; color: #01579b; font-weight: bold;">
+                            f = 15 / 60 = 0,25 Hz
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-texto" style="border-left-color: #4caf50; background: linear-gradient(145deg, #ffffff, #e8f5e9); padding: 10px 15px;">
+                        <h4 style="margin: 0 0 3px 0; color: #388e3c; font-size: 0.95em;">Paso 2: Cálculo del Período (T)</h4>
+                        <div style="font-size: 1.05em; font-family: 'Courier New', Courier, monospace; background: rgba(76,175,80,0.1); padding: 5px; border-radius: 6px; text-align: center; color: #1b5e20; font-weight: bold;">
+                            T = 1 / 0,25 = 4 s
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-texto" style="border-left-color: #9c27b0; background: linear-gradient(145deg, #ffffff, #f3e5f5); padding: 10px 15px;">
+                        <h4 style="margin: 0 0 3px 0; color: #7b1fa2; font-size: 0.95em;">Paso 3: Frecuencia Angular (&omega;)</h4>
+                        <div style="font-size: 1.05em; font-family: 'Courier New', Courier, monospace; background: rgba(156,39,176,0.1); padding: 5px; border-radius: 6px; text-align: center; color: #4a148c; font-weight: bold;">
+                            &omega; = 2 &times; 3,1416 &times; 0,25 = 1,57 rad/s
+                        </div>
+                    </div>
+                </div>
+
+                <div style="width: 100%; max-width: 360px; display: flex; align-items: center; justify-content: center;">
+                    <img src="img/grafico_reposo.jpg" alt="Física de un ciclo respiratorio en reposo" style="width: 100%; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); border: 3px solid white; object-fit: contain; background: #fff;">
+                </div>
+            </div>
+
+            <div class="columna-video-lateral">
+                <video id="videoExpositor" class="video-expositor" autoplay controls>
+                    <source src="videos/05_marienela.mp4" type="video/mp4">
+                </video>
+                <div class="contenedor-botones">
+                    <a href="04_alisson.html" class="nav-btn">◀ Anterior</a>
+                    <a href="06_noemi.html" class="nav-btn">Siguiente ▶</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById("videoExpositor");
+            video.volume = 1.0;
+            video.addEventListener("ended", function() {
+                window.location.href = "06_noemi.html";
+            });
+        });
+    </script>
+</body>
+</html>

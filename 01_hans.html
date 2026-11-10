@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación 1 - Bienvenida</title>
+    <!-- Conexión al archivo principal de estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="diapositiva">
+        <!-- Encabezado con Logo UTP y Título -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+            <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
+                <img src="img/hans.jpg" alt="Hans" class="avatar-titulo">
+                Análisis físico-fisiológico del ciclo respiratorio
+            </h1>
+            <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
+        </div>
+        
+        <!-- Layout Maestro de PC (Contenido izq / Video y botones der) -->
+        <div class="layout-pc-maestro">
+            
+            <!-- Columna Izquierda: Bienvenida e Integrantes -->
+            <div class="columna-contenido-principal">
+                <h2 style="color: #333; margin-top: 0; font-size: 1.5em; margin-bottom: 12px;">Bienvenidos - Grupo 1</h2>
+                <p style="font-size: 1.15em; color: #555; margin-bottom: 20px; line-height: 1.5;">El tema a presentar es el análisis físico-fisiológico del ciclo respiratorio.</p>
+                <p style="font-size: 1.05em; font-weight: bold; color: #333; margin-bottom: 12px;">Integrantes del equipo de trabajo:</p>
+                
+                <!-- Cuadrícula de integrantes -->
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;">
+                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
+                        <img src="img/nickol.jpg" alt="Nickol" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Castañeda Viña, Drisjhely Nickol</span>
+                    </div>
+                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
+                        <img src="img/cinthia.jpg" alt="Cinthia" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Ccorahua Mendez, Cinthia</span>
+                    </div>
+                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
+                        <img src="img/alisson.jpg" alt="Alisson" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Leon Flores, Alisson Milagros</span>
+                    </div>
+                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
+                        <img src="img/hans.jpg" alt="Hans" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Miguel Diaz, Hans Alejandro</span>
+                    </div>
+                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
+                        <img src="img/marianela.jpg" alt="Marianela" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Vasquez Diestra, Marianela Dorali</span>
+                    </div>
+                    <div style="display: flex; align-items: center; background: linear-gradient(145deg, #ffffff, #f8f9fa); padding: 10px 15px; border-radius: 10px; border: 1px solid #e2e8f0; box-shadow: 0 3px 10px rgba(0,0,0,0.03);">
+                        <img src="img/noemi.jpg" alt="Noemi" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; margin-right: 14px; border: 2px solid #d32f2f;">
+                        <span style="font-size: 0.95em; font-weight: 600; color: #2d3748;">Vega Garro, Noemi</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Video Lateral y Botón Siguiente -->
+            <div class="columna-video-lateral">
+                <!-- Se agregó ID, se quitó 'muted' y se habilitó volumen máximo -->
+                <video id="videoExpositor" class="video-expositor" autoplay controls>
+                    <source src="videos/01_hans.mp4" type="video/mp4">
+                </video>
+                <div class="contenedor-botones">
+                    <a href="02_alisson.html" class="nav-btn">Siguiente ▶</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById("videoExpositor");
+            
+            // Configurar volumen al máximo (100%)
+            video.volume = 1.0;
+
+            // Cuando el video termine de reproducirse, pasa automáticamente a la siguiente página
+            video.addEventListener("ended", function() {
+                window.location.href = "02_alisson.html";
+            });
+        });
+    </script>
+</body>
+</html>

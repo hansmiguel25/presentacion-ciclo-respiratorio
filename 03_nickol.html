@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación 3 - Nickol</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .tarjeta-escenario {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            margin-bottom: 15px;
+        }
+        .img-escenario {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            object-position: top;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border: 3px solid white;
+            transition: transform 0.3s ease;
+        }
+        .tarjeta-texto:hover .img-escenario {
+            transform: scale(1.06) rotate(-2deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="diapositiva">
+        <!-- Encabezado -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+            <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
+                <img src="img/nickol.jpg" alt="Nickol" class="avatar-titulo">
+                Presentación de los Escenarios Prácticos
+            </h1>
+            <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
+        </div>
+        
+        <!-- Layout Maestro de PC -->
+        <div class="layout-pc-maestro">
+            <!-- Columna Izquierda: Tarjetas de Escenarios -->
+            <div class="columna-contenido-principal">
+                <div class="tarjeta-texto tarjeta-escenario" style="border-left-color: #4CAF50; background: linear-gradient(145deg, #ffffff, #f1f8e9);">
+                    <img src="img/image_4f3f51.jpg" alt="Adulto en reposo" class="img-escenario">
+                    <div style="flex: 1;">
+                        <h2 style="margin-top: 0; margin-bottom: 6px; color: #2e7d32; font-size: 1.2em;">🧘‍♂️ Escenario Práctico 1: Reposo</h2>
+                        <p style="margin-bottom: 6px; font-size: 0.95em; color: #444;">Se observa a un adulto sentado y en reposo durante un minuto completo.</p>
+                        <p style="margin: 0; font-size: 1em; color: #1b5e20;"><strong>Dato inicial:</strong> 15 ciclos respiratorios (15 rpm).</p>
+                    </div>
+                </div>
+
+                <div class="tarjeta-texto tarjeta-escenario" style="border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fff3e0);">
+                    <img src="img/image_4f3f16.jpg" alt="Adulto en esfuerzo" class="img-escenario">
+                    <div style="flex: 1;">
+                        <h2 style="margin-top: 0; margin-bottom: 6px; color: #e65100; font-size: 1.2em;">🏃‍♂️ Escenario Práctico 2: Esfuerzo</h2>
+                        <p style="margin-bottom: 6px; font-size: 0.95em; color: #444;">El adulto incrementa su actividad física mediante una prueba de esfuerzo o caminata ligera.</p>
+                        <p style="margin: 0; font-size: 1em; color: #e65100;"><strong>Dato inicial:</strong> Aumenta a 24 respiraciones por minuto.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Video y Navegación lateral -->
+            <div class="columna-video-lateral">
+                <video id="videoExpositor" class="video-expositor" autoplay controls>
+                    <source src="videos/03_nickol.mp4" type="video/mp4">
+                </video>
+                <div class="contenedor-botones">
+                    <a href="02_alisson.html" class="nav-btn">◀ Anterior</a>
+                    <a href="04_alisson.html" class="nav-btn">Siguiente ▶</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById("videoExpositor");
+            
+            // Forzar el volumen al máximo (100%) al cargar la página
+            video.volume = 1.0;
+
+            // Cuando termine el video de Nickol, pasa automáticamente a la siguiente página
+            video.addEventListener("ended", function() {
+                window.location.href = "04_alisson.html";
+            });
+        });
+    </script>
+</body>
+</html>

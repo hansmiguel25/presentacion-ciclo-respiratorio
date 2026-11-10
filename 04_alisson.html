@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación 4 - Alisson</title>
+    <!-- Conexión al archivo principal de animaciones y estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="diapositiva">
+        <!-- Encabezado con el Logo de la UTP y el título personalizado con el avatar de Alisson -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+            <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
+                <img src="img/alisson.jpg" alt="Alisson" class="avatar-titulo">
+                Fundamentos Físico-Fisiológicos
+            </h1>
+            <!-- Logo de la UTP sin fondo ubicado en la esquina superior derecha -->
+            <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
+        </div>
+        
+        <!-- Layout Maestro de PC (Contenido izq / Video y botones der) -->
+        <div class="layout-pc-maestro">
+            
+            <!-- Columna Izquierda: Cuadrícula 2x2 optimizada -->
+            <div class="columna-contenido-principal">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%;">
+                    
+                    <!-- Tarjeta 1: Ciclo Respiratorio -->
+                    <div class="tarjeta-texto" style="border-left-color: #03a9f4; background: linear-gradient(145deg, #ffffff, #e1f5fe); padding: 16px 22px;">
+                        <h3 style="margin-top: 0; margin-bottom: 8px; color: #0288d1; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">🔄 Ciclo Respiratorio</h3>
+                        <p style="font-size: 0.95em; margin-bottom: 0; line-height: 1.45; color: #444;">Comprende una inspiración (el diafragma se contrae y desciende) y una espiración (salida pasiva del aire).</p>
+                    </div>
+
+                    <!-- Tarjeta 2: Frecuencia -->
+                    <div class="tarjeta-texto" style="border-left-color: #4caf50; background: linear-gradient(145deg, #ffffff, #e8f5e9); padding: 16px 22px;">
+                        <h3 style="margin-top: 0; margin-bottom: 8px; color: #388e3c; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">⏱️ Frecuencia (f)</h3>
+                        <p style="font-size: 0.95em; margin-bottom: 0; line-height: 1.45; color: #444;">Indica cuántos ciclos se realizan en una unidad de tiempo; se expresa en hercios (ciclos por segundo).</p>
+                    </div>
+
+                    <!-- Tarjeta 3: Período -->
+                    <div class="tarjeta-texto" style="border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fff3e0); padding: 16px 22px;">
+                        <h3 style="margin-top: 0; margin-bottom: 6px; color: #f57c00; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">⏳ Período (T)</h3>
+                        <p style="font-size: 0.93em; margin-bottom: 10px; line-height: 1.4; color: #444;">Tiempo que tarda en completarse un ciclo; es inversamente proporcional a la frecuencia.</p>
+                        <div style="background: rgba(255,152,0,0.15); padding: 8px; border-radius: 8px; text-align: center; font-size: 1.15em; font-weight: bold; color: #e65100;">
+                            T = 1 / f
+                        </div>
+                    </div>
+
+                    <!-- Tarjeta 4: Frecuencia Angular -->
+                    <div class="tarjeta-texto" style="border-left-color: #9c27b0; background: linear-gradient(145deg, #ffffff, #f3e5f5); padding: 16px 22px;">
+                        <h3 style="margin-top: 0; margin-bottom: 6px; color: #7b1fa2; display: flex; align-items: center; gap: 10px; font-size: 1.15em;">🌀 Frecuencia Angular (&omega;)</h3>
+                        <p style="font-size: 0.93em; margin-bottom: 10px; line-height: 1.4; color: #444;">Expresa la rapidez matemática con la que avanza la fase del fenómeno periódico.</p>
+                        <div style="background: rgba(156,39,176,0.15); padding: 8px; border-radius: 8px; text-align: center; font-size: 1.15em; font-weight: bold; color: #6a1b9a;">
+                            &omega; = 2&pi;f
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Video Lateral y Botones de Navegación -->
+            <div class="columna-video-lateral">
+                <video id="videoExpositor" class="video-expositor" autoplay controls>
+                    <source src="videos/04_alisson.mp4" type="video/mp4">
+                </video>
+                <div class="contenedor-botones">
+                    <a href="03_nickol.html" class="nav-btn">◀ Anterior</a>
+                    <a href="05_marienela.html" class="nav-btn">Siguiente ▶</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById("videoExpositor");
+            
+            // Forzar volumen al máximo (100%)
+            video.volume = 1.0;
+
+            // Salto automático a la siguiente presentación al terminar el video
+            video.addEventListener("ended", function() {
+                window.location.href = "05_marienela.html";
+            });
+        });
+    </script>
+</body>
+</html>

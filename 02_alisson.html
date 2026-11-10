@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación 2 - Alisson</title>
+    <!-- Conexión al archivo principal de estilos y animaciones -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="diapositiva">
+        <!-- Encabezado con el Logo de la UTP y el título personalizado con el avatar de Alisson -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+            <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
+                <img src="img/alisson.jpg" alt="Alisson" class="avatar-titulo">
+                Resumen e Introducción
+            </h1>
+            <!-- Logo de la UTP sin fondo ubicado en la esquina superior derecha -->
+            <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
+        </div>
+        
+        <!-- Layout Maestro de PC (Contenido izq / Video y botones der) -->
+        <div class="layout-pc-maestro">
+            
+            <!-- Columna Izquierda: Tarjetas de texto y la imagen de los pulmones -->
+            <div class="columna-contenido-principal" style="flex-direction: row; gap: 25px; align-items: center;">
+                
+                <!-- Tarjetas de conceptos -->
+                <div style="flex: 1; display: flex; flex-direction: column; gap: 12px;">
+                    <div class="tarjeta-texto" style="padding: 12px 18px; font-size: 1em; border-left-color: #03a9f4; background: linear-gradient(145deg, #ffffff, #f0f9ff);">
+                        El <strong>ciclo respiratorio</strong> se analiza como un fenómeno periódico utilizando los conceptos de frecuencia, período y frecuencia angular.
+                    </div>
+                    <div class="tarjeta-texto" style="padding: 12px 18px; font-size: 1em; border-left-color: #4caf50; background: linear-gradient(145deg, #ffffff, #f1f8e9);">
+                        La respiración es una <strong>función vital</strong> mediante la cual el organismo incorpora oxígeno y elimina dióxido de carbono.
+                    </div>
+                    <div class="tarjeta-texto" style="padding: 12px 18px; font-size: 1em; border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fffdf0);">
+                        El proceso incluye <strong>movimientos coordinados</strong> del tórax y del diafragma para permitir el ingreso y salida del aire de los pulmones.
+                    </div>
+                    <div class="tarjeta-texto" style="padding: 12px 18px; font-size: 1em; border-left-color: #9c27b0; background: linear-gradient(145deg, #ffffff, #fbf5ff);">
+                        Desde la física, la inspiración y espiración se repiten de manera sucesiva, permitiendo calcular la <strong>rapidez matemática del ciclo</strong>.
+                    </div>
+                </div>
+
+                <!-- Imagen ilustrativa de los pulmones -->
+                <div style="width: 38%; display: flex; align-items: center; justify-content: center;">
+                    <img src="img/pulmones.jpg" alt="Ciclo Respiratorio" style="width: 100%; max-height: 330px; border-radius: 14px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); border: 4px solid white; object-fit: contain; background: #fff;">
+                </div>
+
+            </div>
+
+            <!-- Columna Derecha: Video Lateral y Botones de Navegación -->
+            <div class="columna-video-lateral">
+                <video id="videoExpositor" class="video-expositor" autoplay controls>
+                    <source src="videos/02_alisson.mp4" type="video/mp4">
+                </video>
+                <div class="contenedor-botones">
+                    <a href="01_hans.html" class="nav-btn">◀ Anterior</a>
+                    <a href="03_nickol.html" class="nav-btn">Siguiente ▶</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById("videoExpositor");
+            
+            // Configurar volumen al máximo (100%)
+            video.volume = 1.0;
+
+            // Cuando termine el video de Alisson, pasa automáticamente a la siguiente diapositiva
+            video.addEventListener("ended", function() {
+                window.location.href = "03_nickol.html";
+            });
+        });
+    </script>
+</body>
+</html>

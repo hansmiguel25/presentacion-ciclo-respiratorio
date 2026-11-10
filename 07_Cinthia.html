@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación 7 - Cinthia</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @media (min-width: 901px) {
+            .pc-row { flex-direction: row !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="diapositiva">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+            <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
+                <img src="img/cinthia.jpg" alt="Cinthia" class="avatar-titulo">
+                Interpretación, Análisis y Conclusiones
+            </h1>
+            <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
+        </div>
+        
+        <div class="layout-pc-maestro">
+            <div class="columna-contenido-principal pc-row" style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+                
+                <div style="flex: 1; width: 100%; display: flex; flex-direction: column; gap: 12px;">
+                    <div class="tarjeta-texto" style="border-left-color: #3f51b5; background: linear-gradient(145deg, #ffffff, #e8eaf6); padding: 12px 18px;">
+                        <h4 style="margin: 0 0 6px 0; color: #283593; font-size: 1.05em;">📈 Interpretación Comparativa</h4>
+                        <p style="margin: 0; font-size: 0.93em; color: #333; line-height: 1.45;">
+                            Al aumentar la frecuencia de 15 a 24 rpm (60%), el período disminuye de 4 a 2,5 s (reducción del 37,5%). La frecuencia angular sube de 1,57 a 2,51 rad/s.
+                        </p>
+                    </div>
+
+                    <div class="tarjeta-texto" style="border-left-color: #009688; background: linear-gradient(145deg, #ffffff, #e0f2f1); padding: 12px 18px;">
+                        <h4 style="margin: 0 0 6px 0; color: #00695c; font-size: 1.05em;">💡 Análisis Físico-Fisiológico</h4>
+                        <p style="margin: 0; font-size: 0.93em; color: #333; line-height: 1.45;">
+                            Los músculos activos demandan más oxígeno. El organismo responde aumentando la ventilación pulmonar, demostrando la relación inversa entre frecuencia y período.
+                        </p>
+                    </div>
+
+                    <div class="tarjeta-texto" style="border-left-color: #ff9800; background: linear-gradient(145deg, #ffffff, #fff3e0); padding: 12px 18px;">
+                        <h4 style="margin: 0 0 6px 0; color: #e65100; font-size: 1.05em;">📌 Conclusiones del Grupo</h4>
+                        <p style="margin: 0; font-size: 0.93em; color: #333; line-height: 1.45;">
+                            La frecuencia, el período y la frecuencia angular describen cuantitativamente el carácter periódico del ciclo respiratorio.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="width: 100%; max-width: 380px; display: flex; flex-direction: column; justify-content: center;">
+                    <div style="background: white; border-radius: 14px; padding: 18px; box-shadow: 0 10px 25px rgba(0,0,0,0.12); border: 3px solid #e2e8f0; width: 100%; box-sizing: border-box;">
+                        <h4 style="margin-top: 0; color: #d32f2f; text-align: center; font-size: 1.1em; border-bottom: 2px solid #eee; padding-bottom: 8px;">Resumen de Magnitudes</h4>
+                        <table style="width: 100%; font-size: 0.92em; border-collapse: collapse; text-align: left;">
+                            <tr style="border-bottom: 2px solid #ddd; background: #f8f9fa;">
+                                <th style="padding: 8px;">Magnitud</th>
+                                <th style="padding: 8px; color: #2e7d32;">Reposo</th>
+                                <th style="padding: 8px; color: #e65100;">Esfuerzo</th>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;"><strong>Respiraciones</strong></td>
+                                <td style="padding: 8px;">15 rpm</td>
+                                <td style="padding: 8px;">24 rpm</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;"><strong>Frecuencia</strong></td>
+                                <td style="padding: 8px;">0,25 Hz</td>
+                                <td style="padding: 8px;">0,40 Hz</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid #eee;">
+                                <td style="padding: 8px;"><strong>Período (T)</strong></td>
+                                <td style="padding: 8px;">4 s</td>
+                                <td style="padding: 8px;">2,5 s</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px;"><strong>Freq. Angular</strong></td>
+                                <td style="padding: 8px;">1,57 rad/s</td>
+                                <td style="padding: 8px;">2,51 rad/s</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="columna-video-lateral">
+                <video id="videoExpositor" class="video-expositor" autoplay controls>
+                    <source src="videos/07_cinthia.mp4" type="video/mp4">
+                </video>
+                <div class="contenedor-botones">
+                    <a href="06_noemi.html" class="nav-btn">◀ Anterior</a>
+                    <a href="08_hans.html" class="nav-btn">Siguiente ▶</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById("videoExpositor");
+            video.volume = 1.0;
+            video.addEventListener("ended", function() {
+                window.location.href = "08_hans.html";
+            });
+        });
+    </script>
+</body>
+</html>

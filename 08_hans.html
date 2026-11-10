@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación 8 - Cierre y Agradecimientos</title>
+    <!-- Conexión al archivo principal de animaciones y estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="diapositiva">
+        
+        <!-- Encabezado con el Logo de la UTP y la foto de Hans -->
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #d32f2f; padding-bottom: 15px; margin-bottom: 25px; flex-wrap: wrap; gap: 15px;">
+            <h1 style="margin: 0; border: none; padding: 0; display: flex; align-items: center; gap: 15px; font-size: 1.65em; color: #d32f2f;">
+                <img src="img/hans.jpg" alt="Hans" class="avatar-titulo">
+                Agradecimientos y Reflexión Final
+            </h1>
+            <!-- Logo de la UTP sin fondo ubicado en la esquina superior derecha -->
+            <img src="img/logo-01.png" alt="Logo UTP" style="height: 48px; object-fit: contain;">
+        </div>
+        
+        <!-- Layout Maestro de PC (Contenido izq / Video y botones der) -->
+        <div class="layout-pc-maestro">
+            
+            <!-- Columna Izquierda: Contenido Central Inspirador -->
+            <div class="columna-contenido-principal" style="text-align: center; justify-content: center; padding: 10px;">
+                <div style="font-size: 3.5em; margin-bottom: 10px;">🌟</div>
+                <h2 style="color: #d32f2f; font-size: 2em; margin-bottom: 15px;">¡Muchas gracias por su atención!</h2>
+                <p style="font-size: 1.15em; line-height: 1.6; color: #444; background: linear-gradient(145deg, #ffffff, #fdf2f2); padding: 25px; border-radius: 16px; border: 2px dashed #d32f2f; box-shadow: 0 10px 25px rgba(211, 47, 47, 0.08);">
+                    <em>"El conocimiento de la física y la fisiología no solo nos ayuda a entender cómo funciona cada ciclo en nuestro organismo, sino que nos impulsa a seguir construyendo ciencia con pasión y esfuerzo diario."</em>
+                </p>
+                <p style="font-weight: bold; color: #555; font-size: 1.1em; margin-top: 15px;">— Atentamente, Grupo 1 (UTP)</p>
+            </div>
+            
+            <!-- Columna Derecha: Video Lateral y Botones de Navegación -->
+            <div class="columna-video-lateral">
+                <video id="videoExpositor" class="video-expositor" autoplay controls>
+                    <source src="videos/08_hans.mp4" type="video/mp4">
+                </video>
+                <div class="contenedor-botones">
+                    <a href="07_Cinthia.html" class="nav-btn">◀ Anterior</a>
+                    <a href="index.html" class="nav-btn" style="background-color: #4CAF50; box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);">Volver al Inicio 🏠</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById("videoExpositor");
+            
+            // Forzar volumen al máximo (100%)
+            video.volume = 1.0;
+
+            // Al terminar el video de cierre, vuelve automáticamente al inicio
+            video.addEventListener("ended", function() {
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+</body>
+</html>
